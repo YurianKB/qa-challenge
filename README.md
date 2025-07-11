@@ -1,18 +1,36 @@
-# QA Challenge
-## Node.js — Pruebas de API REST + integración 
+# Metalibrary QA Challenge
+## Node.js — Pruebas de API REST + Integración
 
-Escribir pruebas unitarias y de integración con Jest para:
-Validar el endpoint GET /users/:id con:
+- Instalar Jest vía npm o yarn.
 
-- Usuario existente
-- Usuario no encontrado (404)
-- Configurar y usar MongoMemoryServer para las pruebas (evitar DB real).
-- Añadir pruebas para otro endpoint POST /users que cree un usuario con validación.
+### Objetivo
+
+Escribir pruebas unitarias y de integración con Jest en la carpeta `/test` para validar los siguientes endpoints y funcionalidades:
+
+1. **GET /users/:id**  
+   - Validar cuando el usuario existe.  
+   - Validar cuando el usuario no es encontrado (debe responder 404).
+
+2. **DELETE /users/:id**  
+   - Validar que la acción de borrado sea un *soft delete* (no eliminación física).
+
+3. **POST /users**  
+   - Crear un usuario con validación de datos.  
+   - Validar que los campos **nombre**, **email** y **rfc** tengan el formato adecuado.
+
+### Extras
+
+- Implementar las validaciones necesarias para los campos:  
+  - Nombre  
+  - Email  
+  - RFC (con formato mexicano correcto)
+
+- Implementar la lógica para simular un *soft delete* al borrar usuarios.
 
 ##  Mongodb
 
-Base de datos: videoclub
-Colección: peliculas
+- Base de datos: videoclub
+- Colección: peliculas
 
 Ejemplo de documentos en peliculas:
 
