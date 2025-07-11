@@ -34,13 +34,14 @@ usersRouter.get('/:id', async (request, response, next) => {
 usersRouter.post('/', async (req, res) => {
   try {
     if (!req.body.name) {
-      return response.status(400).json({
+      return res.status(400).json({
         error: 'name missing',
       });
     }
     const newUser = {
       name: req.body.name,
       email: req.body.email,
+      rfc: req.body.rfc
     };
     const user = new User(newUser);
     const savedUser = await user.save();
