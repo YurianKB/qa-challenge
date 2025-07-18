@@ -1,0 +1,19 @@
+db.peliculas.find()
+db.peliculas.find({ anio: 1997 })
+db.peliculas.find({ calificacion: { $gt: 8 } })
+db.peliculas.find({}, { titulo: 1, anio: 1, _id: 0 })
+db.peliculas.find({ disponible: true })
+db.peliculas.insertOne({
+  titulo: "Inception",
+  anio: 2010,
+  genero: "Ciencia Ficción",
+  calificacion: 8.8,
+  director: "Christopher Nolan",
+  disponible: true
+})
+db.peliculas.updateOne(
+  { titulo: "Titanic" },
+  { $set: { calificacion: 8.0 } }
+)
+db.peliculas.find({ director: "Christopher Nolan" })
+db.peliculas.find().sort({ anio: -1 })

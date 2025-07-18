@@ -1,14 +1,15 @@
 const baseURL = 'http://localhost:3000/api';
 const fetch = require('node-fetch');
 
+//Devuelve datos de que el usuario existe
 describe('GET /users/:id', () => {
   it('should return user data when user exists', async () => {
     const response = await fetch(`${baseURL}/users/123`);
-    expect(response.status).toBe(200);
+    expect(response.status).toBe(200); //Que el HTTP status sea 200 OK
     const user = await response.json();
-    expect(user).toHaveProperty('id', '123');
+    expect(user).toHaveProperty('id', '123'); //ID Dummy, el JSON tiene una propiedad id 123
   });
-
+//ID inexistente 404 Not Found
   it('should return 404 when user does not exist', async () => {
     const response = await fetch(`${baseURL}/users/nonexistent-id`);
     expect(response.status).toBe(404);
